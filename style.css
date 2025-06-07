@@ -1,66 +1,52 @@
 body {
+  background-color: #fff0f5;
   font-family: 'Comic Sans MS', cursive, sans-serif;
-  background: linear-gradient(to bottom right, #fef6e4, #fcd5ce);
   margin: 0;
   padding: 0;
   text-align: center;
   color: #333;
 }
 
-header {
-  background-color: #ffb703;
-  padding: 20px;
-  border-bottom: 5px dashed #fb8500;
+.container {
+  padding: 2rem;
+}
+
+.frango {
+  width: 150px;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  border: 5px dashed hotpink;
 }
 
 h1 {
-  margin: 0;
+  color: hotpink;
   font-size: 2.5rem;
+  margin-bottom: 0.5rem;
 }
 
-main {
-  padding: 30px;
-}
-
-.calculadora {
-  background-color: #fff;
-  border: 2px solid #fb8500;
-  border-radius: 10px;
-  padding: 20px;
-  display: inline-block;
-  margin-top: 20px;
-}
-
-.calculadora input {
-  margin: 5px;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.calculadora button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #ffb703;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-#resultado {
-  margin-top: 15px;
+.frase {
   font-size: 1.2rem;
-  color: #007f5f;
+  font-style: italic;
+  margin-bottom: 2rem;
+  color: #555;
 }
 
-.frango img {
-  margin-top: 30px;
-  width: 200px;
+.calculadoras {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
 }
 
-footer {
-  margin-top: 50px;
-  font-size: 0.9rem;
-  color: #888;
+.calculadoras a {
+  background-color: hotpink;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.calculadoras a:hover {
+  background-color: deeppink;
 }

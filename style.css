@@ -1,14 +1,61 @@
 body {
   font-family: Arial, sans-serif;
-  padding: 20px;
-  background: #fefefe;
+  background-color: #fefefe;
   color: #333;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
 
+header {
+  background-color: #ff69b4;
+  color: white;
+  padding: 20px 0;
+}
+
+main {
+  padding: 20px;
+}
+
 .frango {
-  width: 300px;
-  margin-top: 20px;
+  width: 250px;
+  margin: 20px auto;
+  display: block;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.calculadoras {
+  margin-top: 30px;
+}
+
+.calculadoras h2 {
+  color: #444;
+}
+
+.calculadoras ul {
+  list-style: none;
+  padding: 0;
+}
+
+.calculadoras li {
+  margin: 10px 0;
+}
+
+.calculadoras a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #ff1493;
+  font-size: 18px;
+}
+
+.calculadoras a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  margin-top: 40px;
+  padding: 10px;
+  font-size: 14px;
+  color: #999;
 }

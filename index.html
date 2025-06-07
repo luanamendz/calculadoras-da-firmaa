@@ -3,34 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Calculadoras da Firma 🐔</title>
+  <title>Calculadoras da Firma</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>🐔 Calculadoras da Firma</h1>
-   <p>Se errar a conta, a culpa é sua. Eu só sou um frango. 🐔🧮</p>
-  </header>
-
-  <main>
-    <section class="calculadora">
-      <h2>💸 Calculadora de Juros Compostos</h2>
-      <label>Capital Inicial (R$): <input type="number" id="capital" /></label>
-      <label>Taxa de Juros (% ao mês): <input type="number" id="taxa" /></label>
-      <label>Período (meses): <input type="number" id="tempo" /></label>
-      <button onclick="calcularJuros()">Calcular</button>
-      <div id="resultado"></div>
-    </section>
-
-    <section class="frango">
-      <img src="https://i.imgur.com/h7K5JZh.png" alt="Frango da Firma com maleta" />
-    </section>
-  </main>
-
-  <footer>
-    <p>feito com 💼 por um frango muito ocupado.</p>
-  </footer>
-
-  <script src="script.js"></script>
+  <div class="container">
+    <img src="frango.png" alt="Frango da Firma" class="frango" />
+    <h1>Calculadoras da Firma</h1>
+    <p class="frase">Se errar a conta, a culpa é sua. Eu só sou um frango. 🐔🧮</p>
+    
+    <div class="calculadoras">
+      <a href="#">Calculadora Básica</a>
+      <a href="#">Regra de Três</a>
+      <a href="#">Juros Simples</a>
+      <a href="#">Desconto</a>
+      <a href="#">Frete</a>
+    </div>
+  </div>
 </body>
 </html>

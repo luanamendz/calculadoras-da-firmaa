@@ -6,27 +6,92 @@
   <title>Calculadoras da Firma</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    /* Fundo amarelo queimado, tipo aquela vibe 'galo raiz' */
+    body {
+      background-color: #cc8400; /* amarelo queimado vibes */
+      color: #000; /* preto no texto pra dar aquele contraste */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 1rem;
+    }
+
+    header h1 {
+      color: #000; /* título preto, firme e forte */
+      text-align: center;
+      margin-bottom: 1rem;
+      user-select: none;
+    }
+
     /* Estilo turbo para o texto do frango */
     .frango-texto {
       font-weight: bold;
       font-style: italic;
       font-size: 1.3rem;
-      color: #555;
+      color: #000; /* preto, sem firulas */
       max-width: 400px;
       margin: 1rem auto 2rem auto;
       text-align: center;
       user-select: none;
+      text-shadow: 1px 1px 0 #805600; /* sombra marota para destacar no amarelo */
     }
+
     .frango {
       display: block;
       margin: 0 auto 2rem auto;
       width: 180px;
       animation: bounce 2s infinite;
       user-select: none;
+      filter: drop-shadow(2px 2px 1px #805600); /* sombra para destacar imagem */
     }
+
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-12px); }
+    }
+
+    section.calculadoras {
+      background-color: #000; /* fundo preto no lugar do rosa, clássico */
+      border-radius: 8px;
+      padding: 1rem 2rem;
+      max-width: 420px;
+      margin: 0 auto 2rem auto;
+      color: #ffcc33; /* amarelo claro para texto na seção preta */
+      box-shadow: 0 0 10px rgba(0,0,0,0.7);
+      user-select: none;
+    }
+
+    section.calculadoras h2 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    section.calculadoras ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    section.calculadoras li {
+      margin: 0.5rem 0;
+    }
+
+    section.calculadoras a {
+      color: #ffcc33; /* link amarelo para combinar */
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    section.calculadoras a:hover {
+      color: #ffee99;
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      color: #333;
+      font-size: 0.9rem;
+      user-select: none;
+      margin-top: 2rem;
     }
   </style>
 </head>

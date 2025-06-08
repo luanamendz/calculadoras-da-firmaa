@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calculadora de Custos</title>
+</head>
+<body>
+  <h1>📊 Calculadora de Custos</h1>
+  <p>Informe os valores:</p>
+  <label>Custo fixo (R$): <input type="number" id="custoFixo" /></label><br>
+  <label>Custo variável por unidade (R$): <input type="number" id="custoVariavel" /></label><br>
+  <label>Quantidade de unidades: <input type="number" id="quantidade" /></label><br>
+  <button onclick="calcularCustos()">Calcular Custo Total</button>
+  <p id="resultado"></p>
+
+  <script>
+    function calcularCustos() {
+      const fixo = parseFloat(document.getElementById("custoFixo").value);
+      const variavel = parseFloat(document.getElementById("custoVariavel").value);
+      const quantidade = parseInt(document.getElementById("quantidade").value);
+
+      if (isNaN(fixo) || isNaN(variavel) || isNaN(quantidade)) {
+        document.getElementById("resultado").innerHTML = "🧐 Preencha todos os campos corretamente!";
+        return;
+      }
+
+      const total = fixo + (variavel * quantidade);
+      document.getElementById("resultado").innerHTML = `💸 Custo total: R$ ${total.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>

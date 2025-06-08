@@ -2,16 +2,119 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Calculadora de Crescimento</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>📈 Calculadora de Crescimento</title>
+  <style>
+    body {
+      background-color: #fff;
+      color: #000;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    header {
+      background: #000;
+      width: 100%;
+      padding: 1rem 0;
+      text-align: center;
+      color: #ffcc33;
+      font-weight: 700;
+      font-size: 1.5rem;
+      user-select: none;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    main {
+      background: #000;
+      color: #ffcc33;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-top: 2rem;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.7);
+      user-select: none;
+    }
+    label {
+      display: block;
+      margin: 1rem 0 0.5rem;
+      font-weight: 600;
+    }
+    input[type="number"] {
+      width: 100%;
+      padding: 0.4rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+    }
+    button {
+      margin-top: 1.5rem;
+      background: #ffcc33;
+      color: #000;
+      font-weight: 700;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #ffee99;
+    }
+    #resultado {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-align: center;
+      min-height: 1.5rem;
+    }
+    .frango {
+      width: 120px;
+      margin: 2rem auto 1rem;
+      animation: bounce 2s infinite;
+      user-select: none;
+      display: block;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    footer {
+      margin-top: auto;
+      padding: 1rem 0;
+      color: #666;
+      font-size: 0.85rem;
+      user-select: none;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-  <h1>📈 Calculadora de Crescimento</h1>
-  <p>Informe os valores:</p>
-  <label>Capital inicial (R$): <input type="number" id="capital" /></label><br>
-  <label>Taxa de crescimento (% ao período): <input type="number" id="taxa" /></label><br>
-  <label>Período (nº de períodos): <input type="number" id="tempo" /></label><br>
-  <button onclick="calcularJuros()">Calcular Valor Futuro</button>
-  <p id="resultado"></p>
+  <header>📈 Calculadora de Crescimento</header>
+
+  <main>
+    <label for="capital">Capital inicial (R$):</label>
+    <input type="number" id="capital" />
+
+    <label for="taxa">Taxa de crescimento (% ao período):</label>
+    <input type="number" id="taxa" />
+
+    <label for="tempo">Período (nº de períodos):</label>
+    <input type="number" id="tempo" />
+
+    <button onclick="calcularJuros()">Calcular Valor Futuro</button>
+
+    <p id="resultado"></p>
+
+    <img src="../images/frango-da-firma.png" alt="Frango da Firma" class="frango" />
+  </main>
+
+  <footer>© 2025 A Firma S/A</footer>
 
   <script>
     function calcularJuros() {
@@ -20,12 +123,12 @@
       const tempo = parseInt(document.getElementById("tempo").value);
 
       if (isNaN(capital) || isNaN(taxa) || isNaN(tempo)) {
-        document.getElementById("resultado").innerHTML = "🧐 Preencha todos os campos corretamente!";
+        document.getElementById("resultado").textContent = "🧐 Preencha todos os campos corretamente!";
         return;
       }
 
       const montante = capital * Math.pow(1 + taxa, tempo);
-      document.getElementById("resultado").innerHTML = `💰 Valor futuro: R$ ${montante.toFixed(2)}`;
+      document.getElementById("resultado").textContent = `💰 Valor futuro: R$ ${montante.toFixed(2)}`;
     }
   </script>
 </body>

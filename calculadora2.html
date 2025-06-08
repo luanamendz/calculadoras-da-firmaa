@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calculadora de Lucro</title>
+</head>
+<body>
+  <h1>💰 Calculadora de Lucro</h1>
+  <p>Informe os valores:</p>
+  <label>Receita total (R$): <input type="number" id="receita" /></label><br>
+  <label>Custos totais (R$): <input type="number" id="custos" /></label><br>
+  <button onclick="calcularLucro()">Calcular Lucro</button>
+  <p id="resultado"></p>
+
+  <script>
+    function calcularLucro() {
+      const receita = parseFloat(document.getElementById("receita").value);
+      const custos = parseFloat(document.getElementById("custos").value);
+
+      if (isNaN(receita) || isNaN(custos)) {
+        document.getElementById("resultado").innerHTML = "🧐 Preencha todos os campos corretamente!";
+        return;
+      }
+
+      const lucro = receita - custos;
+      const emoji = lucro >= 0 ? "🚀" : "😟";
+
+      document.getElementById("resultado").innerHTML = `${emoji} Lucro: R$ ${lucro.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>

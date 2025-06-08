@@ -2,119 +2,106 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>📊 Calculadora de Custos</title>
   <style>
     body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 1rem;
       background-color: #fff;
       color: #000;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
     }
-    header {
-      background: #000;
-      width: 100%;
-      padding: 1rem 0;
+    h1 {
       text-align: center;
-      color: #ffcc33;
-      font-weight: 700;
-      font-size: 1.5rem;
-      user-select: none;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    }
-    main {
-      background: #000;
-      color: #ffcc33;
-      border-radius: 10px;
-      padding: 2rem;
-      margin-top: 2rem;
-      width: 100%;
-      max-width: 400px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.7);
-      user-select: none;
-    }
-    label {
-      display: block;
-      margin: 1rem 0 0.5rem;
-      font-weight: 600;
-    }
-    input[type="number"] {
-      width: 100%;
-      padding: 0.4rem;
-      font-size: 1rem;
-      border-radius: 5px;
-      border: none;
-      outline: none;
-    }
-    button {
-      margin-top: 1.5rem;
-      background: #ffcc33;
-      color: #000;
-      font-weight: 700;
-      padding: 0.6rem 1.2rem;
-      border: none;
-      border-radius: 7px;
-      cursor: pointer;
-      font-size: 1.1rem;
-      transition: background 0.3s ease;
-    }
-    button:hover {
-      background: #ffee99;
-    }
-    #resultado {
-      margin-top: 1.5rem;
-      font-size: 1.2rem;
-      font-weight: 700;
-      text-align: center;
-      min-height: 1.5rem;
+      margin-bottom: 1rem;
     }
     .frango {
-      width: 120px;
-      margin: 2rem auto 1rem;
+      display: block;
+      margin: 0 auto 1.5rem auto;
+      width: 180px;
       animation: bounce 2s infinite;
       user-select: none;
-      display: block;
     }
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-12px); }
     }
-    footer {
-      margin-top: auto;
-      padding: 1rem 0;
-      color: #666;
-      font-size: 0.85rem;
+    label {
+      display: block;
+      margin: 0.5rem 0;
+    }
+    input[type=number] {
+      padding: 0.3rem;
+      width: 100%;
+      max-width: 200px;
+      font-size: 1rem;
+      margin-top: 0.2rem;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      background-color: #ffcc33;
+      border: none;
+      border-radius: 5px;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #ffee99;
+    }
+    #resultado {
+      margin-top: 1rem;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    .voltar {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 2rem;
+      color: #000;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
       user-select: none;
-      text-align: center;
+    }
+    .voltar:hover {
+      text-decoration: underline;
+    }
+    .voltar svg {
+      margin-right: 0.4rem;
+      fill: #000;
+      width: 20px;
+      height: 20px;
     }
   </style>
 </head>
 <body>
-  <header>📊 Calculadora de Custos</header>
 
-  <main>
-    <label for="custoFixo">Custo fixo (R$):</label>
+  <h1>📊 Calculadora de Custos</h1>
+
+  <img src="../imagens/frangote.png" alt="Frango Diferente" class="frango" />
+
+  <p>Informe os valores:</p>
+  <label>Custo fixo (R$):
     <input type="number" id="custoFixo" />
-
-    <label for="custoVariavel">Custo variável por unidade (R$):</label>
+  </label>
+  <label>Custo variável por unidade (R$):
     <input type="number" id="custoVariavel" />
-
-    <label for="quantidade">Quantidade de unidades:</label>
+  </label>
+  <label>Quantidade de unidades:
     <input type="number" id="quantidade" />
+  </label>
+  <button onclick="calcularCustos()">Calcular Custo Total</button>
 
-    <button onclick="calcularCustos()">Calcular Custo Total</button>
+  <p id="resultado"></p>
 
-    <p id="resultado"></p>
-
-    <img src="../images/frango-da-firma.png" alt="Frango da Firma" class="frango" />
-  </main>
-
-  <footer>© 2025 A Firma S/A</footer>
+  <a href="../index.html" class="voltar" aria-label="Voltar ao menu principal">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" >
+      <path d="M15 19l-7-7 7-7"/>
+    </svg>
+    Voltar
+  </a>
 
   <script>
     function calcularCustos() {
@@ -123,13 +110,14 @@
       const quantidade = parseInt(document.getElementById("quantidade").value);
 
       if (isNaN(fixo) || isNaN(variavel) || isNaN(quantidade)) {
-        document.getElementById("resultado").textContent = "🧐 Preencha todos os campos corretamente!";
+        document.getElementById("resultado").innerHTML = "🧐 Preencha todos os campos corretamente!";
         return;
       }
 
       const total = fixo + (variavel * quantidade);
-      document.getElementById("resultado").textContent = `💸 Custo total: R$ ${total.toFixed(2)}`;
+      document.getElementById("resultado").innerHTML = `💸 Custo total: R$ ${total.toFixed(2)}`;
     }
   </script>
+
 </body>
 </html>
